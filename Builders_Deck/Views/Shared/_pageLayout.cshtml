@@ -50,7 +50,12 @@
                 <ul class="nav d-flex">
                     <li class="nav-item"><a asp-action="Index" asp-controller="Page" class="nav-link active text-dark">Home</a></li>
                     <li class="nav-item"><a asp-action="Search" asp-controller="Page" class="nav-link text-dark">Search</a></li>
-                    <li class="nav-item"><a asp-action="SignOut" asp-controller="Auth" class="nav-link text-dark">SignOut</a></li>
+                    <li class="nav-item">
+                        <form asp-controller="Auth" asp-action="SignOut" method="post" style="display: inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-link p-0" style="text-decoration: underline;">Sign Out</button>
+                        </form>
+                    </li>
                 </ul>
                 <button class="mobile-nav-toggle d-xl-none btn btn-outline-secondary">
                     <i class="bi bi-list"></i>

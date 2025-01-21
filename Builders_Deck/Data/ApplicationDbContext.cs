@@ -12,6 +12,8 @@ namespace Builders_Deck.Data
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<QuoteRequest> QuoteRequests { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Contractor> Contractors { get; set; }
     }
 }

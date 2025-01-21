@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Builders_Deck.Models;
 using Builders_Deck.Utility;
 using Microsoft.AspNetCore.Authentication;
+using Builders_Deck.Data;
 
 namespace Builders_Deck.Controllers
 {
@@ -17,7 +18,7 @@ namespace Builders_Deck.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> SignIn(SignInViewModel model)
         {
