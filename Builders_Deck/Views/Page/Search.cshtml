@@ -1,4 +1,5 @@
-﻿@model List<Builders_Deck.Data.Contractor>
+﻿@using Org.BouncyCastle.Asn1.Ocsp
+@model List<Builders_Deck.Data.Contractor>
 @{
     Layout = "~/Views/Shared/_pageLayout.cshtml";
 }
@@ -24,23 +25,37 @@
     </div>
 </div>
 
+<div class="contractors-list mt-5">
+    <h2 class="text-center mb-4">Contractors</h2>
 
-    <div class="contractors-list mt-5">
-        <h2 class="text-center mb-4">Contractors</h2>
-    <div class="row justify-content-center">
-            @foreach (var contractor in Model)
+    @{
+        var locationQuery = Context.Request.Query["location"].ToString();
+        var filteredContractors = Model?.Where(c =>
+        string.IsNullOrEmpty(locationQuery) ||
+        c.Location.Contains(locationQuery, StringComparison.OrdinalIgnoreCase)
+        );
+    }
+
+    @if (filteredContractors?.Any() == true)
+    {
+        <div class="row g-4">
+            @foreach (var contractor in filteredContractors)
             {
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h3 class="card-title">@contractor.Name</h3>
-                            <p class="card-text"><strong>Location:</strong> @contractor.Location</p>
-                            <p class="card-text"><strong>Budget:</strong> $@contractor.Budget</p>
-                            <p class="card-text"><strong>Specialty:</strong> @contractor.Specialty</p>
+                            <h3 class="card-title">@Html.Encode(contractor.Name)</h3>
+                            <p class="card-text"><strong>Location:</strong> @Html.Encode(contractor.Location)</p>
+                            <p class="card-text"><strong>Budget:</strong> $@contractor.Budget.ToString("N0")</p>
+                            <p class="card-text"><strong>Specialty:</strong> @Html.Encode(contractor.Specialty)</p>
                         </div>
                     </div>
                 </div>
             }
         </div>
-    </div>
+    }
+    else
+    {
+        <p class="text-center">No contractors found for the specified location.</p>
+    }
 </div>
