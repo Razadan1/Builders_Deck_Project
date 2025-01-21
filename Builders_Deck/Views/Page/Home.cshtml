@@ -1,0 +1,24 @@
+﻿@model List<Builders_Deck.Data.Project>
+@{
+    Layout = "~/Views/Shared/_pageLayout.cshtml";
+}
+
+<div class="project-highlights container my-5">
+    <h2 class="text-center mb-4">Featured Projects</h2>
+    <div class="row g-4">
+        @foreach (var project in Model)
+        {
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="@project.ImageUrl" class="card-img-top" alt="@project.Title">
+                    <div class="card-body">
+                        <h3 class="card-title">@project.Title</h3>
+                        <p class="card-text">@project.Description</p>
+                        <p class="card-text"><strong>Contractor:</strong> @project.ContractorName</p>
+                        <p class="card-text"><strong>Completed:</strong> @project.CompletionDate.ToShortDateString()</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" style="background-image: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")');">
+        <div class="container position-relative">
+            <h1>Starter Page</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Starter Page</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <!-- Left Content: Form -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="card shadow-lg border-0 p-4" style="max-width: 400px; width: 100%;">
+                    <div class="signin-content">
+                        <form method="POST" id="signin-form" class="signin-form">
+                            <h2 class="form-title text-center mb-4">Login to Account</h2>
+
+                            <!-- Error Message -->
+                            @if (!string.IsNullOrEmpty(""))
+                            {
+                                <p class="text-danger text-center">Invalid username or password. Please try again.</p>
+                            }
+
+                            <!-- Username Field -->
+                            <div class="form-group mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required />
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="form-group mb-3 position-relative">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required />
+                                <span class="zmdi zmdi-eye field-icon toggle-password position-absolute"
+                                      style="top: 50%; right: 10px; cursor: pointer; transform: translateY(-50%);"
+                                      onclick="togglePasswordVisibility()"></span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group text-center">
+                                <input type="submit" name="submit" id="submit" class="btn btn-primary w-100" value="Sign In" />
+                            </div>
+
+                            <!-- Signup Link -->
+                            <p class="text-center mt-3">
+                                Don’t have an account?
+                                <a asp-action="SignUp" asp-controller="Auth" class="text-primary">Sign up here</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content: Optional Placeholder -->
+            <div class="col-md-6 d-none d-md-block d-flex align-items-center justify-content-center text-white">
+                <div class="image-container" style="height: 100vh;  margin-top: 20px; background: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")') no-repeat center center; background-size: cover;"></div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,46 @@
+﻿@model List<Builders_Deck.Data.Contractor>
+@{
+    Layout = "~/Views/Shared/_pageLayout.cshtml";
+}
+
+<div class="container pt-5 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="get" asp-action="Search" class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" name="location" class="form-control" placeholder="Location" />
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="minBudget" class="form-control" placeholder="Min Budget" />
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="maxBudget" class="form-control" placeholder="Max Budget" />
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    <div class="contractors-list mt-5">
+        <h2 class="text-center mb-4">Contractors</h2>
+    <div class="row justify-content-center">
+            @foreach (var contractor in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">@contractor.Name</h3>
+                            <p class="card-text"><strong>Location:</strong> @contractor.Location</p>
+                            <p class="card-text"><strong>Budget:</strong> $@contractor.Budget</p>
+                            <p class="card-text"><strong>Specialty:</strong> @contractor.Specialty</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

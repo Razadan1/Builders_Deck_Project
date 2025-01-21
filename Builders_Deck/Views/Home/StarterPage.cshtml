@@ -1,0 +1,46 @@
+﻿<main class="main">
+
+    <!-- Page Title -->
+    <<div class="page-title dark-background" style="background-image: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")');">
+        <div class="container position-relative">
+            <h1>Starter Page</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Starter Page</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+    <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+
+ 
+
+    </section><!-- /Starter Section Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <!-- Login Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-lg border-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Login</h4>
+                        <p class="card-text">Access your account</p>
+                        <a asp-action="SignIn" asp-controller="Auth" class="btn btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sign Up Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-lg border-2">
+                    <div class="card-body">
+                        <h4 class="card-title">Sign Up</h4>
+                        <p class="card-text">Create a new account</p>
+                        <a asp-action="SignUp" asp-controller="Auth" class="btn btn-success">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </main>

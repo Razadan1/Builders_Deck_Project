@@ -1,0 +1,102 @@
+﻿<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" style="background-image: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")');">
+        <div class=" position-relative">
+            <h1>Starter Page</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Starter Page</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+
+    <div class="container-fluid">
+        <div class="row" style="min-height: calc(100vh - 80px);">
+            <!-- Adjusted height -->
+            <!-- Left Content: Form -->
+            <div class="col-md-6 d-flex align-items-center pt-3 justify-content-center">
+                <div class="card shadow-lg border-0 p-4" style="max-width: 400px; width: 100%;">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Create Account</h2>
+
+                        <!-- First Name Field -->
+                        <div class="form-group mb-4">
+                            <label for="FirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="First Name" required />
+                        </div>
+
+                        <!-- Last Name Field -->
+                        <div class="form-group mb-4">
+                            <label for="LastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="LastName" id="LastName" placeholder="Last Name" required />
+                        </div>
+
+                        <!-- Username Field -->
+                        <div class="form-group mb-4">
+                            <label for="Username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="Username" id="Username" placeholder="Username" required />
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-4">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" required />
+                        </div>
+
+                        <!-- Phone Number Field -->
+                        <div class="form-group mb-4">
+                            <label for="PhoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" required />
+                        </div>
+
+                        <!-- State of Residence Field -->
+                        <div class="form-group mb-4">
+                            <label for="StateOfResidence" class="form-label">State of Residence</label>
+                            <input type="text" class="form-control" name="StateOfResidence" id="StateOfResidence" placeholder="State of Residence" required />
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group mb-4 position-relative">
+                            <label for="Password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" required />
+                        </div>
+
+                        <!-- Confirm Password Field -->
+                        <div class="form-group mb-4">
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password" required />
+                        </div>
+
+                        <!-- Agree Terms -->
+                        <div class="form-group mb-4">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="form-check-input" required />
+                            <label for="agree-term" class="form-check-label">
+                                I agree to all statements in <a href="#" class="text-primary">Terms of Service</a>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group text-center">
+                            <input type="submit" name="submit" id="submit" class="btn btn-primary w-100" value="Sign up" />
+                        </div>
+
+                        <!-- Login Link -->
+                        <p class="text-center mt-3">
+                            Already have an account? <a asp-action="SignIn" asp-controller="Auth" class="text-primary">Login here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Content: Image -->
+            <div class="col-md-6 d-none d-md-block p-0">
+                <div class="image-container" style="height: calc(100vh - 80px); margin-top: 20px; background: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")') no-repeat center center; background-size: cover;"></div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
