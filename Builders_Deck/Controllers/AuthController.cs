@@ -96,7 +96,7 @@ namespace Builders_Deck.Controllers
         [ValidateAntiForgeryToken]
         public new async  Task<IActionResult> SignOut()
         {
-            await HttpContext.SignOutAsync(); // Signs out the user
+            await _signInManager.SignOutAsync(); // Signs out the user
             return RedirectToAction("Index", "Home"); // Redirect to the home page after sign-out
         }
     }
