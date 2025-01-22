@@ -1,4 +1,6 @@
 ﻿<main class="main">
+    <link href="https://cdn.jsdelivr.net/npm/mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+
 
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: url('@Url.Content("~/css/assets/img/page-title-bg.jpg")');">
@@ -38,9 +40,9 @@
                             <div class="form-group mb-3 position-relative">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required />
-                                <span class="zmdi zmdi-eye field-icon toggle-password position-absolute"
+                                <span class="mdi mdi-eye field-icon toggle-password position-absolute"
                                       style="top: 50%; right: 10px; cursor: pointer; transform: translateY(-50%);"
-                                      onclick="togglePasswordVisibility()"></span>
+                                      onclick="togglePasswordVisibility(this)"></span>
                             </div>
 
                             <!-- Submit Button -->
@@ -54,6 +56,25 @@
                                 <a asp-action="SignUp" asp-controller="Auth" class="text-primary">Sign up here</a>
                             </p>
                         </form>
+
+                        <script>
+                            function togglePasswordVisibility(icon) {
+                                const passwordField = document.getElementById('password');
+                                const isPasswordVisible = passwordField.type === 'text';
+
+                                // Toggle password visibility
+                                passwordField.type = isPasswordVisible ? 'password' : 'text';
+
+                                // Update icon class
+                                icon.classList.toggle('mdi-eye');
+                                icon.classList.toggle('mdi-eye-off');
+                            }
+                        </script>
+
+                        <!-- Include Material Design Icons -->
+                        <link href="https://cdn.jsdelivr.net/npm/mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+
+
                     </div>
                 </div>
             </div>
